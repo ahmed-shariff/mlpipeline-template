@@ -1,4 +1,4 @@
-from mlpipeline import Versions
+from mlpipeline import Versions, MetricContainer
 from mlpipeline.base import ExperimentABC, DataLoaderABC
 
 
@@ -31,7 +31,7 @@ class Experiment(ExperimentABC):
         pass
 
     def evaluate_loop(self, input_fn, **kwargs):
-        pass
+        return MetricContainer()
 
     def export_model(self, **kwargs):
         pass
@@ -44,4 +44,5 @@ class Experiment(ExperimentABC):
 
 
 v = Versions()
+v.add_version("Run-1")
 EXPERIMENT = Experiment(v)
